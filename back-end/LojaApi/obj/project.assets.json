@@ -1421,11 +1421,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\raquel.santos\\Desktop\\Dot Project\\back-end\\LojaApi\\LojaApi.csproj",
+      "projectUniqueName": "C:\\Users\\raquel.santos\\Desktop\\Dot Project\\CRUD-.NET\\back-end\\LojaApi\\LojaApi.csproj",
       "projectName": "LojaApi",
-      "projectPath": "C:\\Users\\raquel.santos\\Desktop\\Dot Project\\back-end\\LojaApi\\LojaApi.csproj",
+      "projectPath": "C:\\Users\\raquel.santos\\Desktop\\Dot Project\\CRUD-.NET\\back-end\\LojaApi\\LojaApi.csproj",
       "packagesPath": "C:\\Users\\raquel.santos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\raquel.santos\\Desktop\\Dot Project\\back-end\\LojaApi\\obj\\",
+      "outputPath": "C:\\Users\\raquel.santos\\Desktop\\Dot Project\\CRUD-.NET\\back-end\\LojaApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\raquel.santos\\AppData\\Roaming\\NuGet\\NuGet.Config"

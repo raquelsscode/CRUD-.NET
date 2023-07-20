@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y0u9ozGLqlLAegwK3q8asIHMQMrl378TxYDiYdqjxbR3AzbypRJoSdmmoT7qXaiifPb2zl0LxvEmqe9w/sPQlQ==",
+  "dgSpecHash": "J9C+G0RyAF/jvtTw1pCyj8Qma2IB6W5mlTCT/vsTo5rlqLlk3LMfmdhpDSyMKfH76tkbzrasb4ysoTTTPTwctw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\raquel.santos\\Desktop\\Dot Project\\back-end\\LojaApi\\LojaApi.csproj",
+  "projectFilePath": "C:\\Users\\raquel.santos\\Desktop\\Dot Project\\CRUD-.NET\\back-end\\LojaApi\\LojaApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\raquel.santos\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\raquel.santos\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.9\\microsoft.entityframeworkcore.7.0.9.nupkg.sha512",
