@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Categorias</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="text/javascript">
+        function enviar(nome, dataCadastro, departamento, aceite) {
+
+            const data = {
+                "nome": nome,
+                "dataCadastro": dataCadastro,
+                "aceite": aceite
+            }
+
+            fetch("http://localhost:9999/categorias", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then((response) => response.json())
+                .then((result) => {
+                    Swal.fire(
+                        'Sucesso',
+                        'Categoria cadastrada com sucesso',
+                        'success'
+                    )
+                })
+                .catch((error) => {
+                    Swal.fire(
+                        'Erro',
+                        'Houve um erro ao salvar os dados',
+                        'error'
+                    )
+                })
+        }
+
+        function salvar() {
+            const nome = document.getElementById("nome").value
+            const dataCadastro = document.getElementById("dataCadastro").value
+            const departamento = document.getElementById("departamento").value
+            const aceite = document.getElementById("aceite").checked
+
+            const splitDate = dataCadastro.split("-")
+            const ano = splitDate[0]
+            const mes = splitDate[1]
+            const dia = splitDate[2]
+
+            const hoje = new Date()
+
+            const erros = []
+            if (nome.indexOf(" ") === -1) {
+                erros.push("Preencha o nome completo")
+            }
+            if (hoje.getFullYear() !== parseInt(ano)) {
+                erros.push("O ano deve ser o ano atual")
+            }
+            if (!aceite) {
+                erros.push("Aceite os termos")
+            }
+            if (erros.length == 0) {
+                enviar(nome, dataCadastro, departamento, aceite)
+            } else {
+                Swal.fire(
+                    'Preencha os campos corretamente',
+                    erros.join("<br>"),
+                    'error'
+                )
+            }
+            console.log(erros);
+            return false
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid p-2">
+        <a href="index.html" class="btn btn-primary">Voltar</a>
+        <form onsubmit="return salvar()">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nome" aria-describedby="nomeHelp"
+                    placeholder="Digite o nome">
+                <small id="nomeHelp" class="form-text text-muted">Preencha o nome completo</small>
+            </div>
+            <div class="form-group">
+                <label for="departamento">Departamento</label>
+                <select class="form-control" id="departamento">
+                    <option value="informática">Informática</option>
+                    <option value="Casa,Mesa e Banho">Casa, Mesa e Banho</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dataCadastro">Data de cadastro</label>
+                <input type="date" class="form-control" id="dataCadastro">
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="aceite">
+                <label class="form-check-label" for="aceite">Aceite os termos</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</body>
+
+</html>
