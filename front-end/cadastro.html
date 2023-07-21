@@ -13,16 +13,17 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script type="text/javascript">
-        function enviar(nome, dataCadastro, departamento, aceite) {
+        function enviar(nome, dataCadastro, departamento) {
 
             const data = {
                 "nome": nome,
                 "dataCadastro": dataCadastro,
-                "aceite": aceite
+                "departamento": departamento
             }
 
-            fetch("http://localhost:9999/categorias", {
+            fetch("https://localhost:7241/categorias", {
                 method: "POST",
+                mode: 'cors',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -76,7 +77,6 @@
                     'error'
                 )
             }
-            console.log(erros);
             return false
         }
     </script>
