@@ -52,9 +52,11 @@
                     )
                 })
         }
-
+        
         function renderizar(categorias) {
             const tabela = document.querySelector('#tabela tbody')
+            while(tabela.firstChild){ tabela.removeChild(tabela.firstChild)}
+           
             for(let categoria of categorias) {
                 let linha =  `
                 <tr>
@@ -63,7 +65,7 @@
                     <td>${categoria.departamento}</td>
                     <td>${categoria.dataCadastro}</td>
                     <td>
-                        <a href='javascript: excluir(${categoria.id});'>Excluir</a>
+                        <a href='javascript: excluir(${categoria.id})'>Excluir</a>
                     </td>
                 </tr>
             `

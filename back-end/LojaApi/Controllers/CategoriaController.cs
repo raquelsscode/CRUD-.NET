@@ -40,15 +40,15 @@ namespace LojaAPI.Contorllers
         }
 
         [HttpDelete]
-        [Route("id:int")]
+        [Route("{id:int}")]
         public async Task<ActionResult<Categoria>> Delete([FromServices] DataContext context, int id){
             var categoria = await context.Categorias.FirstOrDefaultAsync(categoria => categoria.Id == id);
-            if (categoria is null) return NotFound();
+            if (categoria == null) return NotFound();
 
             context.Categorias.Remove(categoria);
             await context.SaveChangesAsync();
 
-            return Ok();
+            return Ok(categoria);
         }
     }
 }
